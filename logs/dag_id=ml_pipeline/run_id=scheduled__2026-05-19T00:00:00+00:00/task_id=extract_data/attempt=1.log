@@ -1,0 +1,33 @@
+{"timestamp":"2026-05-19T18:03:37.244201Z","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":209}
+{"timestamp":"2026-05-19T18:03:37.245186Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/ml_pipeline.py","logger":"airflow.dag_processing.dagbag.BundleDagBag","filename":"dagbag.py","lineno":469}
+{"timestamp":"2026-05-19T18:03:37.270929Z","level":"warning","event":"The `airflow.decorators.dag` attribute is deprecated. Please use `'airflow.sdk.dag'`.","category":"UserWarning","filename":"/opt/airflow/dags/ml_pipeline.py","lineno":17,"logger":"py.warnings"}
+{"timestamp":"2026-05-19T18:03:37.271278Z","level":"warning","event":"The `airflow.decorators.task` attribute is deprecated. Please use `'airflow.sdk.task'`.","category":"UserWarning","filename":"/opt/airflow/dags/ml_pipeline.py","lineno":17,"logger":"py.warnings"}
+{"timestamp":"2026-05-19T18:03:37.309474Z","level":"info","event":"Task instance is in running state","logger":"task.stdout"}
+{"timestamp":"2026-05-19T18:03:37.311035Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.QUEUED","logger":"task.stdout"}
+{"timestamp":"2026-05-19T18:03:37.311205Z","level":"info","event":"Current task name:extract_data","logger":"task.stdout"}
+{"timestamp":"2026-05-19T18:03:37.311485Z","level":"info","event":"Dag name:ml_pipeline","logger":"task.stdout"}
+{"timestamp":"2026-05-19T18:03:37.311529Z","level":"info","event":"Done. Returned value was: {'rows': 1000, 'features': 20, 'source': 's3://bucket/raw/'}","logger":"airflow.task.operators.airflow.providers.standard.decorators.python._PythonDecoratedOperator","filename":"python.py","lineno":229}
+{"timestamp":"2026-05-19T18:03:37.311858Z","level":"info","event":"Pushing xcom","ti":"RuntimeTaskInstance(id=UUID('019e4168-4487-75d5-a5dc-fde6e356a61c'), task_id='extract_data', dag_id='ml_pipeline', run_id='scheduled__2026-05-19T00:00:00+00:00', try_number=1, dag_version_id=UUID('019e4159-0b14-7a62-b970-2d40f4ead45e'), map_index=-1, hostname='7b4eb9f454d7', context_carrier={'traceparent': '00-b086e9b8baa66f7683668b1a04a88990-35382e30a0907125-01'}, task=<Task(_PythonDecoratedOperator): extract_data>, bundle_instance=LocalDagBundle(name=dags-folder), max_tries=0, start_date=datetime.datetime(2026, 5, 19, 18, 3, 33, 451946, tzinfo=datetime.timezone.utc), end_date=None, state=<TaskInstanceState.RUNNING: 'running'>, is_mapped=False, rendered_map_index=None, sentry_integration='')","logger":"task","filename":"task_runner.py","lineno":1724}
+{"timestamp":"2026-05-19T18:03:37.411268Z","level":"info","event":"Task instance in success state","logger":"task.stdout"}
+{"timestamp":"2026-05-19T18:03:37.411530Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.RUNNING","logger":"task.stdout"}
+{"timestamp":"2026-05-19T18:03:37.411802Z","level":"info","event":"Task operator:<Task(_PythonDecoratedOperator): extract_data>","logger":"task.stdout"}
+[2026-05-20T01:17:49.205+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-05-20T01:17:49.235+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ml_pipeline.extract_data scheduled__2026-05-19T00:00:00+00:00 [queued]>
+[2026-05-20T01:17:49.244+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ml_pipeline.extract_data scheduled__2026-05-19T00:00:00+00:00 [queued]>
+[2026-05-20T01:17:49.246+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-05-20T01:17:49.258+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): extract_data> on 2026-05-19 00:00:00+00:00
+[2026-05-20T01:17:49.264+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62: DeprecationWarning: This process (pid=5138) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-05-20T01:17:49.265+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'ml_pipeline', 'extract_data', 'scheduled__2026-05-19T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/ml_pipeline.py', '--cfg-path', '/tmp/tmpqj_gv1xm']
+[2026-05-20T01:17:49.266+0000] {standard_task_runner.py:64} INFO - Started process 5140 to run task
+[2026-05-20T01:17:49.266+0000] {standard_task_runner.py:91} INFO - Job 4: Subtask extract_data
+[2026-05-20T01:17:49.308+0000] {task_command.py:426} INFO - Running <TaskInstance: ml_pipeline.extract_data scheduled__2026-05-19T00:00:00+00:00 [running]> on host eda68b95e76e
+[2026-05-20T01:17:49.386+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='ml_pipeline' AIRFLOW_CTX_TASK_ID='extract_data' AIRFLOW_CTX_EXECUTION_DATE='2026-05-19T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-05-19T00:00:00+00:00'
+[2026-05-20T01:17:49.387+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-05-20T01:17:49.388+0000] {python.py:237} INFO - Done. Returned value was: {'rows': 1000, 'features': 20, 'source': 's3://bucket/raw/'}
+[2026-05-20T01:17:49.388+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-05-20T01:17:49.417+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=ml_pipeline, task_id=extract_data, run_id=scheduled__2026-05-19T00:00:00+00:00, execution_date=20260519T000000, start_date=20260520T011749, end_date=20260520T011749
+[2026-05-20T01:17:49.446+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-05-20T01:17:49.477+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-05-20T01:17:49.480+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
